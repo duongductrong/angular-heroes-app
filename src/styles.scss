@@ -1,1 +1,86 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 /* You can add global styles to this file, and also import other style files */
+
+$light: white;
+$primary: #336699;
+$secondary: #334953;
+$success: #18c77b;
+$error: #e35219;
+$warn: #c29417;
+
+$container: 800px;
+$container-fluid: 100%;
+
+$col_size: 8.333%;
+
+$ListColors: ("light" $light), ("primary" $primary), ("secondary" $secondary),
+  ("success" $success), ("error" $error), ("warn" $warn);
+
+/** background and color */
+
+@each $type, $color in $ListColors {
+  .text-#{$type} {
+    color: $color;
+  }
+}
+
+@each $type, $color in $ListColors {
+  .bg-#{$type} {
+    background-color: $color;
+  }
+}
+
+/** layout setting */
+
+.container {
+  width: $container;
+  margin: 0 auto;
+}
+
+.container-fluid {
+  width: $container-fluid;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@each $col in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
+  .col-#{$col} {
+    max-width: $col_size * $col;
+    flex: 0 0 $col_size * $col;
+    padding: 0 3.5px;
+  }
+}
+
+@each $pad in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10) {
+  .pl-#{$pad} {
+    padding-left: 4px * $pad;
+  }
+
+  .pr-#{$pad} {
+    padding-right: 4px * $pad;
+  }
+
+  .pt-#{$pad} {
+    padding-top: 4px * $pad;
+  }
+
+  .pb-#{$pad} {
+    padding-bottom: 4px * $pad;
+  }
+
+  .p-#{$pad} {
+    padding: 4px * $pad;
+  }
+}
