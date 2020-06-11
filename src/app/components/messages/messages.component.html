@@ -1,0 +1,9 @@
+<div class="block">
+  <h3>Message logs {{ messages.length }}</h3>
+  <div class="block-messages">
+    <p *ngFor="let message of messages">
+      <span class="text-error">Log: </span>
+      {{ message }}
+    </p>
+  </div>
+</div>

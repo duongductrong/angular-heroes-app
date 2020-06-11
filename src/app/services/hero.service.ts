@@ -7,16 +7,43 @@ import { Hero } from './hero';
   providedIn: 'root',
 })
 export class HeroService {
-  heroes: Hero[];
+  private heroes: Hero[] = HEROES;
 
   constructor() {}
 
   getHeroes(): any {
-    this.heroes = HEROES;
+    return this.heroes;
   }
 
   getHero(id): any {
     return this.heroes.find((hero) => hero.id === id);
+  }
+
+  getRankHeroes(): any {
+    return [...this.heroes].sort((heroA, heroB) => {
+      return heroA.damage - heroB.damage < 0 ? 1 : -1;
+    });
+  }
+
+  addHero(data): any {
+    let newHero = {
+      ...data,
+      id: Math.max(...this.heroes.map((el) => el.id)) + 1,
+    };
+
+    this.heroes.push(newHero);
+  }
+
+  updateHero(id, data): any {
+    let heroIndex = this.heroes.findIndex((hero) => hero.id === id);
+
+    if (heroIndex !== -1) {
+      this.heroes.fill(data, heroIndex, heroIndex + 1);
+
+      return this.heroes;
+    }
+
+    return false;
   }
 
   searchHero(name): any {
@@ -28,6 +55,7 @@ export class HeroService {
   }
 
   deleteHero(id): any {
-    return this.heroes.filter((hero) => hero.id !== id);
+    this.heroes = this.heroes.filter((hero) => hero.id !== id);
+    return this.heroes;
   }
 }
