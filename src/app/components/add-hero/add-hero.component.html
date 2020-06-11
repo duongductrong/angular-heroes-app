@@ -1,0 +1,25 @@
+<style>
+  input {
+    outline: 0;
+    padding: 5px 10px;
+  }
+  button {
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    padding: 7px 10px;
+  }
+</style>
+
+<form #addHero="ngForm" (ngSubmit)="onSubmitHero(addHero.value)">
+  <input placeholder="Name hero" [(ngModel)]="name" name="name" />
+  <input
+    type="number"
+    placeholder="Damage hero"
+    class="ml-3"
+    [(ngModel)]="damage"
+    name="damage"
+  />
+
+  <button type="submit" class="bg-primary text-light ml-3">Create</button>
+</form>

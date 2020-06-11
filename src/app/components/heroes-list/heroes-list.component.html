@@ -1,0 +1,30 @@
+<div class="heroes-list mt-5">
+  <div class="mt-8 mb-8">
+    <app-add-hero></app-add-hero>
+  </div>
+
+  <div *ngFor="let hero of heroes" class="hero d-flex align-items-center mb-3">
+    <div class="hero-id p-3 bg-primary text-light">{{ hero.id }}</div>
+    <div class="hero-name p-3 bg-dark text-light">{{ hero.name }}</div>
+    <div class="hero-damage p-3 bg-dark text-light">
+      {{ hero.damage }}
+    </div>
+    <div class="hero-actions">
+      <span class="p-3 bg-secondary text-light" (click)="onUpdateHero(hero.id)">
+        {{ update.data.id === hero.id ? "EDITING" : "EDIT" }}
+      </span>
+      <span class="p-3 bg-error text-light" (click)="onDeleteHero(hero.id)"
+        >DELETE</span
+      >
+    </div>
+  </div>
+
+  <div *ngIf="update.status" class="hero-edit">
+    <app-update-hero
+      [id]="update.data.id"
+      [name]="update.data.name"
+      [damage]="update.data.damage"
+      (onCompleted)="onCompleteUpdated()"
+    ></app-update-hero>
+  </div>
+</div>

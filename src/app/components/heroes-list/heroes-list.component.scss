@@ -1,0 +1,11 @@
+.heroes-list {
+  overflow-y: scroll;
+  height: 450px;
+  .hero {
+    cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      margin-left: 10px;
+    }
+  }
+}

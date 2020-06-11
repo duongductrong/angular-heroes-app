@@ -1,0 +1,18 @@
+<form
+  #updateHeroForm="ngForm"
+  (ngSubmit)="onSubmitUpdate(updateHeroForm.value)"
+>
+  <div style="display: none;">
+    <input [(ngModel)]="id" name="id" />
+  </div>
+  <div>
+    <label>Name hero: </label>
+    <input [(ngModel)]="name" name="name" />
+  </div>
+  <div>
+    <label>Damage hero: </label>
+    <input type="number" [(ngModel)]="damage" name="damage" />
+  </div>
+
+  <button type="submit">Save</button>
+</form>
