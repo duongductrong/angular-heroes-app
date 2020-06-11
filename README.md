@@ -2,6 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
+## How to download this source and run this project
+- First: ```git clone https://github.com/duongductrong/angular-heroes-app```
+- Next: Open this project, press ```npm i``` to download packages node_modules 
+- Finally: To run this project, please press ```ng serve --o```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
