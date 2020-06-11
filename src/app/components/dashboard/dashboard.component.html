@@ -1,1 +1,20 @@
-<p>dashboard works!</p>
+<div class="row">
+  <h3 class="col-12 text-primary text-center">Top Heroes</h3>
+  <ng-container *ngIf="heroes.length > 0; else heroesElse">
+    <ng-container *ngFor="let hero of heroes">
+      <div *ngIf="hero.damage > 50" class="col-4 mb-3">
+        <div class="p-5 pt-10 pb-10 bg-primary text-center text-light rounded">
+          {{ hero.name }}
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-template #heroesElse>
+    <div
+      class="col-12 text-center text-primary"
+      style="text-transform: uppercase;"
+    >
+      Don't have data
+    </div>
+  </ng-template>
+</div>

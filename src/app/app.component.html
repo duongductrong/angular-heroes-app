@@ -1,11 +1,7 @@
 <div class="container">
-  <h1 class="text-primary">
-    <small class="text-error"> [Angular] </small> Heroes App
-  </h1>
+  <app-top-bar></app-top-bar>
 
-  <div class="row">
-    <div class="col-4"><div class="p-5 bg-primary text-light">1</div></div>
-    <div class="col-4"><div class="p-5 bg-primary text-light">2</div></div>
-    <div class="col-4"><div class="p-5 bg-primary text-light">3</div></div>
-  </div>
+  <router-outlet></router-outlet>
+
+  <app-messages></app-messages>
 </div>

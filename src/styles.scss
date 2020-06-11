@@ -15,17 +15,23 @@ $secondary: #334953;
 $success: #18c77b;
 $error: #e35219;
 $warn: #c29417;
+$dark: #3d3d3d;
 
-$container: 800px;
+$container: 1200px;
 $container-fluid: 100%;
 
 $col_size: 8.333%;
 
 $ListColors: ("light" $light), ("primary" $primary), ("secondary" $secondary),
-  ("success" $success), ("error" $error), ("warn" $warn);
+  ("success" $success), ("error" $error), ("warn" $warn), ("dark" $dark);
+
+$locations: ("left", "center", "right");
+
+$displays: ("flex", "block", "inline-block");
+
+$locationFlex: (start, center, end, space-between, space-around, space-evenly);
 
 /** background and color */
-
 @each $type, $color in $ListColors {
   .text-#{$type} {
     color: $color;
@@ -55,6 +61,10 @@ $ListColors: ("light" $light), ("primary" $primary), ("secondary" $secondary),
   flex-wrap: wrap;
 }
 
+.rounded {
+  border-radius: 3.5px;
+}
+
 @each $col in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) {
   .col-#{$col} {
     max-width: $col_size * $col;
@@ -63,24 +73,112 @@ $ListColors: ("light" $light), ("primary" $primary), ("secondary" $secondary),
   }
 }
 
-@each $pad in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10) {
-  .pl-#{$pad} {
-    padding-left: 4px * $pad;
+@each $size in (auto, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10) {
+  @if ($size != auto) {
+    .pl-#{$size} {
+      padding-left: 4px * $size;
+    }
+
+    .pr-#{$size} {
+      padding-right: 4px * $size;
+    }
+
+    .pt-#{$size} {
+      padding-top: 4px * $size;
+    }
+
+    .pb-#{$size} {
+      padding-bottom: 4px * $size;
+    }
+
+    .p-#{$size} {
+      padding: 4px * $size;
+    }
+
+    .ml-#{$size} {
+      margin-left: 4px * $size;
+    }
+
+    .mr-#{$size} {
+      margin-right: 4px * $size;
+    }
+
+    .mt-#{$size} {
+      margin-top: 4px * $size;
+    }
+
+    .mb-#{$size} {
+      margin-bottom: 4px * $size;
+    }
+
+    .m-#{$size} {
+      margin: 4px * $size;
+    }
+  } @else {
+    .pl-#{$size} {
+      padding-left: $size;
+    }
+
+    .pr-#{$size} {
+      padding-right: $size;
+    }
+
+    .pt-#{$size} {
+      padding-top: $size;
+    }
+
+    .pb-#{$size} {
+      padding-bottom: $size;
+    }
+
+    .p-#{$size} {
+      padding: $size;
+    }
+
+    .ml-#{$size} {
+      margin-left: $size;
+    }
+
+    .mr-#{$size} {
+      margin-right: $size;
+    }
+
+    .mt-#{$size} {
+      margin-top: $size;
+    }
+
+    .mb-#{$size} {
+      margin-bottom: $size;
+    }
+
+    .m-#{$size} {
+      margin: $size;
+    }
+  }
+}
+
+@each $type in $locations {
+  .text-#{$type} {
+    text-align: #{$type};
+  }
+}
+
+@each $type in $displays {
+  .d-#{$type} {
+    display: #{$type};
+  }
+}
+
+@each $type in $locationFlex {
+  .justify-content-#{$type} {
+    @if ($type == "start" or $type == "end") {
+      justify-content: "flex-" + #{$type};
+    } @else {
+      justify-content: #{$type};
+    }
   }
 
-  .pr-#{$pad} {
-    padding-right: 4px * $pad;
-  }
-
-  .pt-#{$pad} {
-    padding-top: 4px * $pad;
-  }
-
-  .pb-#{$pad} {
-    padding-bottom: 4px * $pad;
-  }
-
-  .p-#{$pad} {
-    padding: 4px * $pad;
+  .align-items-#{$type} {
+    align-items: #{$type};
   }
 }

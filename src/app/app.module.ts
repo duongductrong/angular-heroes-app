@@ -7,18 +7,29 @@ import { AppComponent } from './app.component';
 
 // Components
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
-import { HeoresListComponent } from './components/heores-list/heores-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 // Services
 import { HeroService } from './services/hero.service';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { HeroesListComponent } from './components/heroes-list/heroes-list.component';
+import { AddHeroComponent } from './components/add-hero/add-hero.component';
+import { UpdateHeroComponent } from './components/update-hero/update-hero.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroDetailComponent,
-    HeoresListComponent,
+    HeroesListComponent,
     DashboardComponent,
+    TopBarComponent,
+    NotFoundComponent,
+    MessagesComponent,
+    HeroesListComponent,
+    AddHeroComponent,
+    UpdateHeroComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [HeroService],
