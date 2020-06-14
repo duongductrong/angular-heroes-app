@@ -1,4 +1,4 @@
-<div class="block">
+<div class="block" *ngIf="isAuthenticated">
   <h3>Message logs {{ messages.length }}</h3>
   <div class="block-messages">
     <p *ngFor="let message of messages">
