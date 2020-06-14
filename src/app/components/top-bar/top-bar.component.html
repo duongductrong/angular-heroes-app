@@ -3,7 +3,7 @@
     <small class="text-error"> [Angular] </small> Heroes App
   </h1>
 
-  <div>
+  <div *ngIf="isAuthenticated">
     <a
       routerLink="/"
       class="bg-secondary text-light p-2 rounded"
@@ -23,5 +23,13 @@
       style="text-decoration: none;"
       >404 Error</a
     >
+    <a
+      class="text-primary"
+      style="float: right; cursor: pointer;"
+      *ngIf="isAuthenticated"
+      (click)="logout()"
+    >
+      Logout
+    </a>
   </div>
 </div>

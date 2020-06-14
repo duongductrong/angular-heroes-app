@@ -1,0 +1,56 @@
+<form #loginData="ngForm" (ngSubmit)="onLogin(loginData.value)" class="form">
+  <div class="control">
+    <h1>
+      Sign In
+    </h1>
+  </div>
+  <div class="control block-cube block-input">
+    <input
+      placeholder="username"
+      type="text"
+      name="username"
+      ngModel="admin"
+    />/
+    <div class="bg-top">
+      <div class="bg-inner"></div>
+    </div>
+    <div class="bg-right">
+      <div class="bg-inner"></div>
+    </div>
+    <div class="bg">
+      <div class="bg-inner"></div>
+    </div>
+  </div>
+  <div class="control block-cube block-input">
+    <input
+      placeholder="password"
+      type="password"
+      name="password"
+      ngModel="admin"
+      autocomplete="on"
+    />
+    <div class="bg-top">
+      <div class="bg-inner"></div>
+    </div>
+    <div class="bg-right">
+      <div class="bg-inner"></div>
+    </div>
+    <div class="bg">
+      <div class="bg-inner"></div>
+    </div>
+  </div>
+  <button class="btn block-cube block-cube-hover">
+    <div class="bg-top">
+      <div class="bg-inner"></div>
+    </div>
+    <div class="bg-right">
+      <div class="bg-inner"></div>
+    </div>
+    <div class="bg">
+      <div class="bg-inner"></div>
+    </div>
+    <div class="text">
+      Log In
+    </div>
+  </button>
+</form>

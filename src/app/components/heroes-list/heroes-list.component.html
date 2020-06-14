@@ -1,6 +1,6 @@
 <div class="heroes-list mt-5">
   <div class="mt-8 mb-8">
-    <app-add-hero></app-add-hero>
+    <app-add-hero (onCompleted)="onCompleteCreated($event)"></app-add-hero>
   </div>
 
   <div *ngFor="let hero of heroes" class="hero d-flex align-items-center mb-3">
@@ -24,7 +24,7 @@
       [id]="update.data.id"
       [name]="update.data.name"
       [damage]="update.data.damage"
-      (onCompleted)="onCompleteUpdated()"
+      (onCompleted)="onCompleteUpdated($event)"
     ></app-update-hero>
   </div>
 </div>

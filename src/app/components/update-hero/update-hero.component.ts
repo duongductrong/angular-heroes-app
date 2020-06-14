@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { HeroService } from 'src/app/services/hero.service';
-import { MessageService } from 'src/app/services/message.service';
+import { HeroService } from 'src/app/services/hero/hero.service';
+import { MessageService } from 'src/app/services/message/message.service';
 
 @Component({
   selector: 'app-update-hero',
@@ -27,10 +27,19 @@ export class UpdateHeroComponent implements OnInit {
     data.damage = Number(data.damage);
 
     if (data.name && data.damage) {
-      this.heroService.updateHero(this.id, data);
-      this.onCompleted.emit();
+      this.heroService.updateHero(this.id, data).subscribe((heroUpdated) => {
+        // check error
+        if (heroUpdated['status'] === 403 && heroUpdated['error']) {
+          alert(`${heroUpdated['statusText']} - you need login`);
+          console.warn(heroUpdated['statusText'], 'error, you need to login');
+          return;
+        }
 
-      this.messageService.addMessage('you updated hero');
+        // completed update, sent message
+        this.onCompleted.emit(heroUpdated);
+
+        this.messageService.addMessage('you updated hero');
+      });
     }
   }
 }
