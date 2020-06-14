@@ -3,9 +3,15 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## How to download this source and run this project
-- First: ```git clone https://github.com/duongductrong/angular-heroes-app```
-- Next: Open this project, press ```npm i``` to download packages node_modules 
-- Finally: To run this project, please press ```ng serve --o```
+
+_note_: _The backend api code directory is located inside the angular directory, please follow the instructions_
+
+- Step 1: `git clone https://github.com/duongductrong/angular-heroes-app`
+- Step 2: Open this project, press `npm i` to download packages node_modules for the angular-heroes-app folder
+- Step 3: In the angular-heroes-app folder, press `cd heroes-api` on the terminal or open this folder and press `npm install`
+- Step 4: To run frontend , please press `ng serve --o` in **the angular-heroes-app folder**
+- Step 5: To run backend, please press `npm start` in the **heroes-api folder**
+- Finally: This's a demo app using framework angular
 
 ## Development server
 
